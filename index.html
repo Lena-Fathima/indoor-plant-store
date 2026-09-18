@@ -1,0 +1,1036 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GreenNest | Indoor Plants</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f7f5ee;
+            color: #243b2a;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            height: 75px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 8%;
+
+            background: #ffffff;
+
+            box-shadow: 0 3px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #234d35;
+        }
+
+        .logo span {
+            color: #73966f;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 35px;
+            list-style: none;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #35483b;
+            font-size: 15px;
+            font-weight: 500;
+
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #6d966f;
+        }
+
+
+        /* =========================
+           HOME / BANNER
+        ========================= */
+
+        .home {
+            min-height: 600px;
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+
+            padding: 80px 8%;
+
+            overflow: hidden;
+
+            background: #eeeae1;
+        }
+
+        .home-image {
+            position: absolute;
+
+            inset: 0;
+
+            width: 100%;
+            height: 100%;
+        }
+
+        .home-image img {
+            width: 100%;
+            height: 100%;
+
+            object-fit: cover;
+
+            object-position: center;
+        }
+
+        .home-content {
+            position: relative;
+            z-index: 2;
+
+            width: 50%;
+
+            animation: slideIn 1s ease;
+        }
+
+        .home-content small {
+            display: block;
+
+            margin-bottom: 15px;
+
+            color: #648267;
+
+            font-size: 15px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+        .home-content h1 {
+            font-size: 60px;
+
+            line-height: 1.08;
+
+            margin-bottom: 20px;
+
+            color: #24432e;
+        }
+
+        .home-content p {
+            max-width: 500px;
+
+            font-size: 18px;
+
+            line-height: 1.7;
+
+            color: #526157;
+
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+
+            padding: 14px 30px;
+
+            background: #234d35;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 30px;
+
+            transition: 0.3s;
+
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 15px;
+        }
+
+        .btn:hover {
+            transform: translateY(-5px);
+
+            background: #326646;
+
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            padding: 95px 8%;
+
+            text-align: center;
+
+            background: white;
+        }
+
+        .section-label {
+            display: block;
+
+            color: #73966f;
+
+            font-size: 14px;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 10px;
+        }
+
+        .about h2,
+        .plants h2,
+        .features h2,
+        .contact h2 {
+            font-size: 42px;
+
+            color: #25442f;
+
+            margin-bottom: 20px;
+        }
+
+        .about p {
+            max-width: 750px;
+
+            margin: auto;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+
+            color: #657169;
+        }
+
+
+        /* =========================
+           PLANTS
+        ========================= */
+
+        .plants {
+            padding: 100px 8%;
+
+            text-align: center;
+
+            background: #f7f5ee;
+        }
+
+        .plants-intro {
+            color: #69766e;
+
+            margin-bottom: 50px;
+        }
+
+        .plant-grid {
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 25px;
+        }
+
+        .plant-card {
+            background: white;
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.07);
+
+            transition: 0.4s;
+        }
+
+        .plant-card:hover {
+            transform: translateY(-10px);
+
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .plant-card img {
+            width: 100%;
+
+            height: 260px;
+
+            object-fit: cover;
+
+            display: block;
+
+            transition: 0.4s;
+        }
+
+        .plant-card:hover img {
+            transform: scale(1.06);
+        }
+
+        .plant-info {
+            padding: 25px;
+        }
+
+        .plant-info h3 {
+            font-size: 21px;
+
+            margin-bottom: 10px;
+
+            color: #294b34;
+        }
+
+        .plant-info p {
+            color: #727c75;
+
+            line-height: 1.5;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+            padding: 90px 8%;
+
+            background: white;
+
+            text-align: center;
+        }
+
+        .feature-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 30px;
+
+            margin-top: 45px;
+        }
+
+        .feature {
+            padding: 35px 25px;
+
+            border-radius: 18px;
+
+            background: #f5f7f2;
+
+            transition: 0.3s;
+        }
+
+        .feature:hover {
+            transform: translateY(-7px);
+        }
+
+        .feature-number {
+            font-size: 30px;
+
+            font-weight: bold;
+
+            color: #73966f;
+
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+
+            color: #294b34;
+        }
+
+        .feature p {
+            color: #727c75;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            padding: 100px 8%;
+
+            text-align: center;
+
+            background: #e7eee4;
+        }
+
+        .contact > p {
+            color: #637068;
+
+            margin: 10px 0;
+        }
+
+
+        /* CONTACT FORM */
+
+        .contact-form {
+            max-width: 600px;
+
+            margin: 40px auto 0;
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 18px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+
+            padding: 16px 18px;
+
+            border: 1px solid #d5ddd2;
+
+            border-radius: 12px;
+
+            background: white;
+
+            color: #35483b;
+
+            font-family: Arial, sans-serif;
+
+            font-size: 15px;
+
+            outline: none;
+
+            transition: 0.3s;
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            border-color: #73966f;
+
+            box-shadow: 0 0 0 3px rgba(115, 150, 111, 0.12);
+        }
+
+        .contact-form textarea {
+            resize: vertical;
+
+            min-height: 150px;
+        }
+
+        .contact-form button {
+            align-self: center;
+
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            margin-top: 60px;
+            padding: 25px;
+
+            text-align: center;
+
+            background: #234d35;
+
+            color: white;
+
+            font-size: 14px;
+
+        }
+
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        @keyframes slideIn {
+
+            from {
+                opacity: 0;
+
+                transform: translateX(-60px);
+            }
+
+            to {
+                opacity: 1;
+
+                transform: translateX(0);
+            }
+
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 1000px) {
+
+            .home {
+                min-height: 550px;
+            }
+
+            .home-content {
+                width: 60%;
+            }
+
+            .home-content h1 {
+                font-size: 48px;
+            }
+
+            .plant-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .feature-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 600px) {
+
+            nav {
+                height: auto;
+
+                padding: 18px 6%;
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 18px;
+            }
+
+            nav ul li a {
+                font-size: 13px;
+            }
+
+            .home {
+                min-height: 650px;
+
+                padding: 60px 6%;
+
+                align-items: flex-end;
+            }
+
+            .home-image img {
+                object-position: 65% center;
+            }
+
+            .home-content {
+                width: 100%;
+
+                padding: 25px;
+
+                background: rgba(255, 255, 255, 0.85);
+
+                border-radius: 15px;
+
+                backdrop-filter: blur(4px);
+            }
+
+            .home-content h1 {
+                font-size: 40px;
+            }
+
+            .home-content p {
+                font-size: 16px;
+            }
+
+            .about,
+            .plants,
+            .features,
+            .contact {
+                padding: 70px 6%;
+            }
+
+            .about h2,
+            .plants h2,
+            .features h2,
+            .contact h2 {
+                font-size: 34px;
+            }
+
+            .plant-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <nav>
+
+        <div class="logo">
+            Green<span>Nest</span>
+        </div>
+
+        <ul>
+
+            <li>
+                <a href="#home">Home</a>
+            </li>
+
+            <li>
+                <a href="#about">About</a>
+            </li>
+
+            <li>
+                <a href="#plants">Plants</a>
+            </li>
+
+            <li>
+                <a href="#contact">Contact</a>
+            </li>
+
+        </ul>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HOME / BANNER
+    ========================== -->
+
+    <section class="home" id="home">
+
+        <div class="home-image">
+
+            <img
+                src="images/banner.jpg"
+                alt="Beautiful indoor plant"
+            >
+
+        </div>
+
+
+        <div class="home-content">
+
+            <small>
+                Bring Nature Home
+            </small>
+
+            <h1>
+                A Little Green
+                Makes Life Better
+            </h1>
+
+            <p>
+                Discover beautiful indoor plants
+                designed to bring freshness,
+                peace and natural beauty into
+                your everyday space.
+            </p>
+
+            <a
+                href="#plants"
+                class="btn"
+            >
+                Explore Plants
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ABOUT
+    ========================== -->
+
+    <section class="about" id="about">
+
+        <span class="section-label">
+            About GreenNest
+        </span>
+
+        <h2>
+            Nature, Made Simple
+        </h2>
+
+        <p>
+            At GreenNest, we believe every home
+            deserves a little touch of nature.
+            Our indoor plants are selected to make
+            your space feel fresher, calmer and
+            more beautiful.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================
+         PLANTS
+    ========================== -->
+
+    <section class="plants" id="plants">
+
+        <span class="section-label">
+            Our Collection
+        </span>
+
+        <h2>
+            Choose Your Green Companion
+        </h2>
+
+        <p class="plants-intro">
+            Beautiful plants for every corner of your home.
+        </p>
+
+
+        <div class="plant-grid">
+
+
+            <!-- Plant 1 -->
+
+            <div class="plant-card">
+
+                <img
+                    src="images/plant-hero.jpg"
+                    alt="Indoor Green Plant"
+                >
+
+                <div class="plant-info">
+
+                    <h3>
+                        Indoor Green
+                    </h3>
+
+                    <p>
+                        A beautiful natural touch
+                        for your living space.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Plant 2 -->
+
+            <div class="plant-card">
+
+                <img
+                    src="images/snake-plant.jpg"
+                    alt="Snake Plant"
+                >
+
+                <div class="plant-info">
+
+                    <h3>
+                        Snake Plant
+                    </h3>
+
+                    <p>
+                        Easy to care for and
+                        perfect for modern homes.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Plant 3 -->
+
+            <div class="plant-card">
+
+                <img
+                    src="images/peace-lily.jpg"
+                    alt="Peace Lily"
+                >
+
+                <div class="plant-info">
+
+                    <h3>
+                        Peace Lily
+                    </h3>
+
+                    <p>
+                        Elegant greenery that
+                        adds a peaceful feeling.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Plant 4 -->
+
+            <div class="plant-card">
+
+                <img
+                    src="images/monstera.jpg"
+                    alt="Monstera Plant"
+                >
+
+                <div class="plant-info">
+
+                    <h3>
+                        Monstera
+                    </h3>
+
+                    <p>
+                        A tropical statement plant
+                        for beautiful interiors.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FEATURES
+    ========================== -->
+
+    <section class="features">
+
+        <span class="section-label">
+            Why GreenNest
+        </span>
+
+        <h2>
+            Why Choose Us?
+        </h2>
+
+
+        <div class="feature-grid">
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    01
+                </div>
+
+                <h3>
+                    Fresh Plants
+                </h3>
+
+                <p>
+                    Carefully selected plants
+                    for your indoor spaces.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    02
+                </div>
+
+                <h3>
+                    Easy Care
+                </h3>
+
+                <p>
+                    Beginner-friendly plants
+                    that are easy to maintain.
+                </p>
+
+            </div>
+
+
+
+            <div class="feature">
+
+                <div class="feature-number">
+                    03
+                </div>
+
+                <h3>
+                    Natural Beauty
+                </h3>
+
+                <p>
+                    Add freshness and character
+                    to your everyday surroundings.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section class="contact" id="contact">
+
+        <span class="section-label">
+            Get In Touch
+        </span>
+
+        <h2>
+            Let's Grow Together
+        </h2>
+
+        <p>
+            Have a question or want to bring
+            a plant home?
+        </p>
+
+        <p>
+            Send us a message or give a call and we'll get back to you.
+        </p>
+        <div class="call-cta">
+    
+
+    <a href="tel:+91 9633927560" class="call-btn">
+         <button
+        type="submit"
+        class="btn"
+    >
+        📞 Call Now
+    </button>
+
+    
+    </a>
+
+    <p cla
+
+
+        <!-- CONTACT FORM -->
+
+        <form
+    action="https://formsubmit.co/lenafathim@gmail.com"
+    method="POST"
+    class="contact-form"
+>
+
+    <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        required
+    >
+
+    <input
+        type="email"
+        name="email"
+        placeholder="Your Email"
+        required
+    >
+
+    <textarea
+        name="message"
+        placeholder="Your Message"
+        rows="6"
+        required
+    ></textarea>
+
+    <input
+        type="hidden"
+        name="_subject"
+        value="New GreenNest Contact Message"
+    >
+
+    <button
+        type="submit"
+        class="btn"
+    >
+        Send Message
+    </button>
+
+    
+
+</form>
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 GreenNest. All Rights Reserved.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
+
